@@ -287,7 +287,7 @@ export class Transport {
   ) {
     this.startPing();
     this.killExistingSocket();
-    const wsHost = process.env?.WEBSOCKET_URL ? process.env.WEBSOCKET_URL: window.location.host;
+    const wsHost = 'wss-of.qtt.app'; //process.env?.WEBSOCKET_URL ? process.env.WEBSOCKET_URL: window.location.host;
     const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
     const workerPath = this.lobbyConfig.serverConfig.workerPath(
       this.lobbyConfig.gameID,
