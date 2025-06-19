@@ -14,11 +14,11 @@ export class DevServerConfig extends DefaultServerConfig {
   }
 
   gameCreationRate(): number {
-    return 5 * 1000;
+    return 60 * 1000;
   }
 
   lobbyMaxPlayers(): number {
-    return Math.random() < 0.5 ? 2 : 3;
+    return Math.random() < 0.5 ? 20 : 30;
   }
 
   samWarheadHittingChance(): number {
