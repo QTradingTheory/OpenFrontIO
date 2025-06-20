@@ -33,7 +33,7 @@
     "action_reset_gfx": "Réinitialiser les graphismes",
     "ui_section": "IU du jeu",
     "ui_leaderboard": "Classement",
-    "ui_leaderboard_desc": "Montre les meilleurs joueurs du jeu et leurs noms, leur % de terres occupée, leur or et leurs troupes. Utiliser « Show All » montre tous les joueurs du jeu. Si vous ne voulez pas voir le classement, cliquez sur Masquer.",
+    "ui_leaderboard_desc": "Montre les meilleurs joueurs du jeu et leurs noms, leur % de terres occupée, leur or et leurs troupes. Utiliser « Show All » montre tous les joueurs du jeu. Si vous ne voulez pas voir le classement, cliquez sur Masquer.",
     "ui_control": "Panneau de contrôle",
     "ui_control_desc": "Le panneau de contrôle contient les éléments suivants :",
     "ui_pop": "Pop - Le nombre d'unités que vous avez, votre population max et la vitesse à laquelle vous les gagnez.",
@@ -94,6 +94,8 @@
     "build_hydrogen_desc": "Grande bombe explosive. Apparaît depuis le Silo à Missiles le plus proche et atterrit dans la zone cliquée.",
     "build_mirv": "MIRV",
     "build_mirv_desc": "La bombe la plus puissante du jeu. Se divise en plus petites bombes qui couvriront une vaste zone du territoire. Ne fait des dégâts qu'au joueur sur lequel vous avez cliqué pour la construire. Apparaît depuis le Silo à missiles le plus proche et atterrit dans la zone cliquée.",
+    "build_gem_mine": "Mine de pierres précieuses",
+    "build_gem_mine_desc": "Extrait automatiquement des pierres précieuses de la terre. Les pierres précieuses sont une ressource rare et précieuse qui peut être utilisée pour des améliorations spéciales ou des échanges.",
     "player_icons": "Icônes des joueurs",
     "icon_desc": "Exemples de certaines icônes du jeu que vous rencontrerez et leur signification :",
     "icon_crown": "Couronne - Numéro 1. C'est le meilleur joueur du classement.",
@@ -216,7 +218,8 @@
     "sam_launcher": "Lanceur de SAM",
     "atom_bomb": "Bombe atomique",
     "hydrogen_bomb": "Bombe à hydrogène",
-    "mirv": "MIRV"
+    "mirv": "MIRV",
+    "gem_mine": "Mine de pierres précieuses"
   },
   "user_setting": {
     "title": "Paramètres utilisateur",
@@ -336,18 +339,31 @@
     }
   },
   "build_menu": {
-    "desc": {
-      "atom_bomb": "Petite explosion",
-      "hydrogen_bomb": "Grosse explosion",
-      "mirv": "Énorme explosion, cible uniquement le joueur sélectionné",
-      "missile_silo": "Utilisé pour lancer des bombes nucléaires",
-      "sam_launcher": "Protège contre les bombes nucléaires",
-      "warship": "Capture les navires commerciaux, détruit les navires de guerre et les bateaux",
-      "port": "Envoie des navires commerciaux pour produire de l'or",
-      "defense_post": "Augmente les défenses des frontières voisines",
-      "city": "Augmente la population maximale"
-    },
-    "not_enough_money": "Pas assez d'argent"
+    "title": "Menu de construction",
+    "desc": "Construisez ces bâtiments ou voyez combien vous en avez déjà construits :",
+    "name": "Nom",
+    "icon": "Icône",
+    "desc": "Description",
+    "city": "Ville",
+    "city_desc": "Augmente votre population maximale. Utile quand vous ne pouvez agrandir votre territoire ou quand vous atteignez votre limite de population.",
+    "defense_post": "Poste de défense",
+    "defense_post_desc": "Augmente les défenses autour des frontières voisines, qui montrent un motif en damier. Les attaques des ennemis sont plus lentes et font plus de blessés.",
+    "port": "Port",
+    "port_desc": "Peut seulement être construit à proximité de l'eau. Permet de construire des navires de guerre. Envoie automatiquement des navires commerciaux entre les ports de votre pays et d'autres pays (sauf lorsque le commerce est arrêté), donnant de l'or aux deux parties. L'échange s'arrête automatiquement lorsque vous attaquez ou êtes attaqué par un joueur. Il reprend après 5 minutes ou si vous devenez allié. Vous pouvez controller manuellement le commerce avec \"Arrêter le commerce\" ou \"Commencer le commerce\".",
+    "warship": "Navire de guerre",
+    "warship_desc": "Patrouille dans une zone, capturant les navires commerciaux ennemis et détruisant leurs bateaux (navires de transport) et navires de guerre. Apparaît dans le Port le plus proche et patrouille la zone que vous avez cliquée pour le construire. Vous pouvez contrôler les vaisseaux de guerre en cliquant sur eux (voir Attaque sous Raccourcis) puis en cliquant sur la nouvelle zone dans laquelle vous voulez les déplacer.",
+    "missile_silo": "Silo à missiles",
+    "missile_silo_desc": "Permet de lancer des missiles.",
+    "sam_launcher": "Lanceur SAM",
+    "sam_launcher_desc": "Vous pouvez intercepter les missiles ennemis à portée de 100 pixels. Avec une probabilité de 100% pour la Bombe Atomique, 80% pour la Bombe Hydrogène et 50% pour les Ogives MIRV individuelles. Le SAM a un temps de recharge de 7,5 secondes.",
+    "atom_bomb": "Bombe atomique",
+    "atom_bomb_desc": "Petite bombe explosive qui détruit le territoire, les bâtiments, les navires et les bateaux. Apparaît depuis le Silo à missiles le plus proche et atterrit dans la zone cliquée.",
+    "hydrogen_bomb": "Bombe à hydrogène",
+    "hydrogen_bomb_desc": "Grande bombe explosive. Apparaît depuis le Silo à Missiles le plus proche et atterrit dans la zone cliquée.",
+    "mirv": "MIRV",
+    "mirv_desc": "La bombe la plus puissante du jeu. Se divise en plus petites bombes qui couvriront une vaste zone du territoire. Ne fait des dégâts qu'au joueur sur lequel vous avez cliqué pour la construire. Apparaît depuis le Silo à missiles le plus proche et atterrit dans la zone cliquée.",
+    "gem_mine": "Mine de pierres précieuses",
+    "gem_mine_desc": "Extrait automatiquement des pierres précieuses de la terre. Les pierres précieuses sont une ressource rare et précieuse qui peut être utilisée pour des améliorations spéciales ou des échanges."
   },
   "win_modal": {
     "died": "Vous êtes mort",
@@ -394,12 +410,14 @@
   "control_panel": {
     "pop": "Pop",
     "gold": "Or",
+    "gems": "Pierres précieuses",
     "troops": "Troupes",
     "workers": "Ouvriers",
     "attack_ratio": "Ratio d'attaque"
   },
   "player_panel": {
     "gold": "Or",
+    "gems": "Pierres précieuses",
     "troops": "Troupes",
     "traitor": "Traître",
     "alliance_time_remaining": "Temps restant",

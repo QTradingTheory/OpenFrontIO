@@ -45,7 +45,8 @@ export type OtherUnitType =
   | UnitType.MissileSilo
   | UnitType.Port
   | UnitType.SAMLauncher
-  | UnitType.Warship;
+  | UnitType.Warship
+  | UnitType.GemMine;
 
 export const unitTypeToOtherUnit = {
   [UnitType.City]: "city",
@@ -54,6 +55,7 @@ export const unitTypeToOtherUnit = {
   [UnitType.Port]: "port",
   [UnitType.SAMLauncher]: "saml",
   [UnitType.Warship]: "wshp",
+  [UnitType.GemMine]: "gmin",
 } as const satisfies Record<OtherUnitType, OtherUnit>;
 
 // Attacks
@@ -77,6 +79,9 @@ export const GOLD_INDEX_WORK = 0; // Gold earned by workers
 export const GOLD_INDEX_WAR = 1; // Gold earned by conquering players
 export const GOLD_INDEX_TRADE = 2; // Gold earned by trade ships
 export const GOLD_INDEX_STEAL = 3; // Gold earned by capturing trade ships
+
+// Gems
+export const GEMS_INDEX_MINE = 0; // Gems mined from gem mines
 
 // Other Units
 export const OTHER_INDEX_BUILT = 0; // Structures and warships built

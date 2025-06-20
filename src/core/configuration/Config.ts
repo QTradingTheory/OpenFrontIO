@@ -151,6 +151,8 @@ export interface Config {
   nukeDeathFactor(humans: number, tilesOwned: number): number;
   structureMinDist(): number;
   isReplay(): boolean;
+  gemMineRate(level: number): number;
+  gemMineOutput(level: number): bigint;
 }
 
 export interface Theme {

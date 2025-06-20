@@ -66,6 +66,7 @@ export class PlayerImpl implements Player {
   public _pseudo_random: PseudoRandom;
 
   private _gold: bigint;
+  private _gems: bigint;
   private _troops: bigint;
   private _workers: bigint;
 
@@ -115,6 +116,7 @@ export class PlayerImpl implements Player {
     this._troops = toInt(startTroops);
     this._workers = 0n;
     this._gold = 0n;
+    this._gems = 0n;
     this._displayName = this._name; // processName(this._name)
     this._pseudo_random = new PseudoRandom(simpleHash(this.playerInfo.id));
   }
@@ -672,6 +674,23 @@ export class PlayerImpl implements Player {
     return actualRemoved;
   }
 
+  gems(): Gold {
+    return this._gems;
+  }
+
+  addGems(toAdd: Gold): void {
+    this._gems += toAdd;
+  }
+
+  removeGems(toRemove: Gold): Gold {
+    if (toRemove <= 0n) {
+      return 0n;
+    }
+    const actualRemoved = minInt(this._gems, toRemove);
+    this._gems -= actualRemoved;
+    return actualRemoved;
+  }
+
   population(): number {
     return Number(this._troops + this._workers);
   }
@@ -812,6 +831,7 @@ export class PlayerImpl implements Player {
       case UnitType.DefensePost:
       case UnitType.SAMLauncher:
       case UnitType.City:
+      case UnitType.GemMine:
       case UnitType.Construction:
         return this.landBasedStructureSpawn(targetTile, validTiles);
       default:

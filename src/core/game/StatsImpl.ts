@@ -15,6 +15,7 @@ import {
   GOLD_INDEX_TRADE,
   GOLD_INDEX_WAR,
   GOLD_INDEX_WORK,
+  GEMS_INDEX_MINE,
   NukeType,
   OTHER_INDEX_BUILT,
   OTHER_INDEX_CAPTURE,
@@ -225,6 +226,12 @@ export class StatsImpl implements Stats {
 
   goldWar(player: Player, captured: Player, gold: BigIntLike): void {
     this._addGold(player, GOLD_INDEX_WAR, gold);
+  }
+
+  gemsMined(player: Player, gems: BigIntLike): void {
+    // For now, we'll use the gold array to store gems at a new index
+    // In a full implementation, we'd add a separate gems array to PlayerStats
+    this._addGold(player, GEMS_INDEX_MINE, gems);
   }
 
   unitBuild(player: Player, type: OtherUnitType): void {

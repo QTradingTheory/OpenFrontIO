@@ -52,6 +52,12 @@ export class ControlPanel extends LitElement implements Layer {
   @state()
   private _goldPerSecond: Gold;
 
+  @state()
+  private _gems: Gold;
+
+  @state()
+  private _gemsPerSecond: Gold;
+
   private _lastPopulationIncreaseRate: number;
 
   private _popRateIsIncreasing: boolean = true;
@@ -122,10 +128,12 @@ export class ControlPanel extends LitElement implements Layer {
     this._population = player.population();
     this._maxPopulation = this.game.config().maxPopulation(player);
     this._gold = player.gold();
+    this._gems = player.gems();
     this._troops = player.troops();
     this._workers = player.workers();
     this.popRate = this.game.config().populationIncreaseRate(player) * 10;
     this._goldPerSecond = this.game.config().goldAdditionRate(player) * 10n;
+    this._gemsPerSecond = 0n;
 
     this.currentTroopRatio = player.troops() / player.population();
     this.requestUpdate();
@@ -232,6 +240,14 @@ export class ControlPanel extends LitElement implements Layer {
             <span translate="no"
               >${renderNumber(this._gold)}
               (+${renderNumber(this._goldPerSecond)})</span
+            >
+          </div>
+          <div class="flex justify-between">
+            <span class="font-bold"
+              >${translateText("control_panel.gems")}:</span
+            >
+            <span translate="no"
+              >${renderNumber(this._gems)}</span
             >
           </div>
         </div>

@@ -7,6 +7,7 @@ import {
   EmojiMessage,
   GameUpdates,
   Gold,
+  Gems,
   NameViewData,
   Player,
   PlayerActions,
@@ -231,6 +232,9 @@ export class PlayerView {
   }
   gold(): Gold {
     return this.data.gold;
+  }
+  gems(): Gems {
+    return this.data.gems || 0n;
   }
   population(): number {
     return this.data.population;

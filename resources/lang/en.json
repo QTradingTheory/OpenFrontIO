@@ -234,7 +234,7 @@
     "tab_basic": "Basic Settings",
     "tab_keybinds": "Keybinds",
     "dark_mode_label": "🌙 Dark Mode",
-    "dark_mode_desc": "Toggle the site’s appearance between light and dark themes",
+    "dark_mode_desc": "Toggle the site's appearance between light and dark themes",
     "emojis_label": "😊 Emojis",
     "emojis_desc": "Toggle whether emojis are shown in game",
     "special_effects_label": "💥 Special effects",
@@ -303,10 +303,10 @@
       "troops": "Please give me troops!",
       "gold": "Please give me gold!",
       "no_attack": "Please don't attack me!",
-      "sorry_attack": "Sorry, I didn’t mean to attack.",
+      "sorry_attack": "Sorry, I didn't mean to attack.",
       "alliance": "Alliance?",
       "help_defend": "Help me defend against [P1]!",
-      "team_up": "Let’s team up against [P1]!"
+      "team_up": "Let's team up against [P1]!"
     },
     "attack": {
       "attack": "Attack [P1]!",
@@ -316,7 +316,7 @@
     },
     "defend": {
       "defend": "Defend [P1]!",
-      "dont_attack": "Don’t attack [P1]!",
+      "dont_attack": "Don't attack [P1]!",
       "ally": "[P1] is my ally!"
     },
     "greet": {
@@ -334,7 +334,7 @@
       "trust_broken": "I trusted you..."
     },
     "misc": {
-      "go": "Let’s go!",
+      "go": "Let's go!",
       "strategy": "Nice strategy!",
       "fun": "This game is fun!",
       "pr": "When will my PR finally get merged...?"
@@ -428,6 +428,7 @@
   "control_panel": {
     "pop": "Pop",
     "gold": "Gold",
+    "gems": "Gems",
     "troops": "Troops",
     "workers": "Workers",
     "attack_ratio": "Attack Ratio"

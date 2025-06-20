@@ -450,6 +450,24 @@ export class DefaultConfig implements Config {
           cost: () => 0n,
           territoryBound: true,
         };
+      case UnitType.GemMine:
+        return {
+          cost: (p: Player) =>
+            p.type() === PlayerType.Human && this.infiniteGold()
+              ? 0n
+              : BigInt(
+                  Math.min(
+                    2_000_000,
+                    Math.pow(
+                      2,
+                      p.unitsIncludingConstruction(UnitType.GemMine).length,
+                    ) * 500_000,
+                  ),
+                ),
+          territoryBound: true,
+          constructionDuration: this.instantBuild() ? 0 : 15 * 10,
+          upgradable: true,
+        };
       default:
         assertNever(type);
     }
@@ -799,5 +817,16 @@ export class DefaultConfig implements Config {
 
   defensePostTargettingRange(): number {
     return 75;
+  }
+
+  gemMineRate(level: number): number {
+    // Base rate of 0.1 (10% chance every 10 ticks = 1% per tick)
+    // Increases by 0.05 per level
+    return 0.1 + (level - 1) * 0.05;
+  }
+
+  gemMineOutput(level: number): bigint {
+    // Base output of 10 gems, increases by 5 per level
+    return BigInt(10 + (level - 1) * 5);
   }
 }

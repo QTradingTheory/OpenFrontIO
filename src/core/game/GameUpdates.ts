@@ -3,6 +3,7 @@ import {
   EmojiMessage,
   GameUpdates,
   Gold,
+  Gems,
   MessageType,
   NameViewData,
   PlayerID,
@@ -109,6 +110,7 @@ export interface PlayerUpdate {
   isDisconnected: boolean;
   tilesOwned: number;
   gold: Gold;
+  gems: Gems;
   population: number;
   workers: number;
   troops: number;

@@ -13,6 +13,7 @@ import { Stats } from "./Stats";
 export type PlayerID = string;
 export type Tick = number;
 export type Gold = bigint;
+export type Gems = bigint;
 
 export const AllPlayers = "AllPlayers" as const;
 
@@ -149,6 +150,7 @@ export enum UnitType {
   MIRV = "MIRV",
   MIRVWarhead = "MIRV Warhead",
   Construction = "Construction",
+  GemMine = "Gem Mine",
 }
 
 const _structureTypes: ReadonlySet<UnitType> = new Set([
@@ -158,6 +160,7 @@ const _structureTypes: ReadonlySet<UnitType> = new Set([
   UnitType.SAMLauncher,
   UnitType.MissileSilo,
   UnitType.Port,
+  UnitType.GemMine,
 ]);
 
 export function isStructureType(type: UnitType): boolean {
@@ -214,6 +217,8 @@ export interface UnitParamsMap {
   };
 
   [UnitType.Construction]: {};
+
+  [UnitType.GemMine]: {};
 }
 
 // Type helper to get params type for a specific unit type
@@ -469,12 +474,15 @@ export interface Player {
 
   // Resources & Population
   gold(): Gold;
+  gems(): Gems;
   population(): number;
   workers(): number;
   troops(): number;
   targetTroopRatio(): number;
   addGold(toAdd: Gold): void;
   removeGold(toRemove: Gold): Gold;
+  addGems(toAdd: Gems): void;
+  removeGems(toRemove: Gems): Gems;
   addWorkers(toAdd: number): void;
   removeWorkers(toRemove: number): void;
   setTargetTroopRatio(target: number): void;

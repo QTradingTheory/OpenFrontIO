@@ -268,7 +268,7 @@ export class PlayerPanel extends LitElement implements Layer {
               </div>
 
               <!-- Resources section -->
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid grid-cols-3 gap-2">
                 <div class="flex flex-col gap-1">
                   <!-- Gold -->
                   <div class="text-white text-opacity-80 text-sm px-2">
@@ -279,6 +279,18 @@ export class PlayerPanel extends LitElement implements Layer {
                     translate="no"
                   >
                     ${renderNumber(other.gold() || 0)}
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <!-- Gems -->
+                  <div class="text-white text-opacity-80 text-sm px-2">
+                    ${translateText("player_panel.gems")}
+                  </div>
+                  <div
+                    class="bg-opacity-50 bg-gray-700 rounded p-2 text-white"
+                    translate="no"
+                  >
+                    ${renderNumber(other.gems() || 0)}
                   </div>
                 </div>
                 <div class="flex flex-col gap-1">
