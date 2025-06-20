@@ -30,7 +30,7 @@ export class DevServerConfig extends DefaultServerConfig {
   }
 
   numWorkers(): number {
-    return 20;
+    return 2;
   }
   jwtAudience(): string {
     return "localhost";
