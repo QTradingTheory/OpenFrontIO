@@ -51,7 +51,7 @@ if [ -n "$STOPPED_CONTAINER" ]; then
     echo "Container $STOPPED_CONTAINER removed."
 fi
 
-if [ "${SUBDOMAIN}" = main ] || [ "${DOMAIN}" = openfront.io ]; then
+if [ "${SUBDOMAIN}" = main ] || [ "${DOMAIN}" = of.qtt.app ]; then
     RESTART=always
 else
     RESTART=no
