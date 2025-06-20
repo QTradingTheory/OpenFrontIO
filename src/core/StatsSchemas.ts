@@ -37,6 +37,7 @@ export const OtherUnitSchema = z.union([
   z.literal("wshp"),
   z.literal("silo"),
   z.literal("saml"),
+  z.literal("gmin"),
 ]);
 export type OtherUnit = z.infer<typeof OtherUnitSchema>;
 export type OtherUnitType =
@@ -106,6 +107,7 @@ export const PlayerStatsSchema = z
     boats: z.record(BoatUnitSchema, AtLeastOneNumberSchema).optional(),
     bombs: z.record(BombUnitSchema, AtLeastOneNumberSchema).optional(),
     gold: AtLeastOneNumberSchema.optional(),
+    gems: AtLeastOneNumberSchema.optional(),
     units: z.record(OtherUnitSchema, AtLeastOneNumberSchema).optional(),
   })
   .optional();
