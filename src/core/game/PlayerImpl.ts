@@ -143,6 +143,7 @@ export class PlayerImpl implements Player {
       isDisconnected: this.isDisconnected(),
       tilesOwned: this.numTilesOwned(),
       gold: this._gold,
+      gems: this._gems,
       population: this.population(),
       workers: this.workers(),
       troops: this.troops(),
